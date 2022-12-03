@@ -1,9 +1,7 @@
-from PIL import Image
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import MultiPartParser
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView
-from django.http import HttpResponse
 
 from data_loader.resources.mixins import ThumbnailMixin, ImageMixin
 from data_loader.resources.models import UploadedImage
