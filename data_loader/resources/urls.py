@@ -22,6 +22,16 @@ urlpatterns = [
         views.OriginalImageView.as_view(),
         name="original",
     ),
+    path(
+        'images/<int:pk>/<int:expiring_time>',
+        views.ExpiringLinkView.as_view(),
+        name="link-expiring",
+    ),
+    path(
+        'images/<int:pk>/<str:url_str>',
+        views.ExpiringImageView.as_view(),
+        name="image-expiring",
+    ),
     re_path(r'^media/(?P<path>.*)$', serve, {
         'document_root': settings.MEDIA_ROOT,
     })
