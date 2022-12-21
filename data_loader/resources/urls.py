@@ -6,19 +6,28 @@ from data_loader.resources import views
 
 
 urlpatterns = [
-    path('image-upload', views.ImageUploadView.as_view(), name="image-upload"),
     path(
-        'thumbnail200/<int:pk>',
+        'images/image-upload',
+        views.ImageUploadView.as_view(),
+        name="image-upload",
+    ),
+    path(
+        'files/file-upload',
+        views.FileUploadView.as_view(),
+        name="file-upload",
+    ),
+    path(
+        'images/<int:pk>/thumbnail200',
         views.Thumbnail200View.as_view(),
         name="thumbnail200",
     ),
     path(
-        'thumbnail400/<int:pk>',
+        'images/<int:pk>/thumbnail400',
         views.Thumbnail400View.as_view(),
         name="thumbnail400",
     ),
     path(
-        'original/<int:pk>',
+        'images/<int:pk>/original',
         views.OriginalImageView.as_view(),
         name="original",
     ),
@@ -31,6 +40,11 @@ urlpatterns = [
         'images/<int:pk>/<str:url_str>',
         views.ExpiringImageView.as_view(),
         name="image-expiring",
+    ),
+    path(
+        'files/my-files',
+        views.FilesInfoView.as_view(),
+        name="files-info",
     ),
     re_path(r'^media/(?P<path>.*)$', serve, {
         'document_root': settings.MEDIA_ROOT,

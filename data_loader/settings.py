@@ -114,3 +114,17 @@ AUTH_USER_MODEL = 'users.User'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'api_key': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization'               
+        }
+    },
+}
+
+RABBIT_URL = os.getenv('RABBIT_URL')
+CELERY_BROKER_URL = RABBIT_URL
+CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND')
