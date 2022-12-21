@@ -26,6 +26,8 @@ from data_loader.resources.serializers import (
 
 LINK_LENGTH = 20
 LINK_EXPIRED = 'You link has expired'
+WRONG_EXPIRING_TIME = ('Please provide the value '
+                       'of the expiring time between 300 and 30000 seconds.')
 
 
 class ImageUploadView(CreateAPIView):
@@ -64,6 +66,8 @@ class ExpiringLinkView(APIView):
     permission_classes = [PermissionExpireLink]
 
     def get(self, request, pk, expiring_time=300):
+        if expiring_time < 300 or expiring_time > 30000:
+            return Response(WRONG_EXPIRING_TIME)
         sequence = string.ascii_lowercase
         url_str = ''.join(random.sample(sequence, LINK_LENGTH))
         ExpiringLink.objects.create(
