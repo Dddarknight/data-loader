@@ -8,15 +8,14 @@ from rest_framework_simplejwt.views import (
 from data_loader.users import views
 
 
-router = DefaultRouter()
-router.register(r'users', views.UserViewSet, basename="user")
-
 urlpatterns = [
-    path('', include(router.urls)),
     path(
-        'api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'
+        'token/', TokenObtainPairView.as_view(), name='token_obtain_pair'
     ),
     path(
-        'api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'
+        'token/refresh/', TokenRefreshView.as_view(), name='token_refresh'
     ),
+    path('sign-up/', views.SignUpView.as_view(), name='sign-up'),
+    path('', views.UsersView.as_view(), name='users'),
+    path('<int:pk>', views.UserView.as_view(), name='user'),
 ]

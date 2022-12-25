@@ -8,6 +8,12 @@ Endpoints:
 
 | Endpoint | Method | Description |
 |----------|---------|---------|
+| /users | GET |  Returns a list of users. |
+| /users | POST |  Creates a user. |
+| /users/'<int:pk>' | GET |  Returns a user. |
+| /users/'<int:pk>' | PUT |  Updates a user. |
+| /users/'<int:pk>' | PATCH |  Partialle updates a user. |
+| /users/'<int:pk>' | DELETE |  Deletes a user. |
 | /images/image-upload | POST |  User can upload an image if he is authenticated. |
 | /images/'<int:pk>'/thumbnail200 | GET | Is available for users with subscription plan. Returns a 200px height thumbnail of the image with given pk. |
 | /images/'<int:pk>'/thumbnail400 | GET |  Is available for users with subscription plans Premium or Enterprise. Returns a 400px height thumbnail of the image with given pk. |

@@ -12,8 +12,8 @@ schema_view = get_schema_view(
         default_version='v1',
     ),
     patterns=[
-        path('', include('data_loader.users.urls')),
-        path('', include('data_loader.resources.urls')),
+        path('users/', include('data_loader.users.urls')),
+        path('resources/', include('data_loader.resources.urls')),
     ],
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -21,8 +21,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('data_loader.users.urls')),
-    path('', include('data_loader.resources.urls')),
+    path('users/', include('data_loader.users.urls')),
+    path('resources', include('data_loader.resources.urls')),
     path(
         'docs/',
         TemplateView.as_view(
