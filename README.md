@@ -9,21 +9,22 @@ Endpoints:
 | Endpoint | Method | Description |
 |----------|---------|---------|
 | /users | GET |  Returns a list of users. |
-| /users | POST |  Creates a user. |
+| /users/sign-up | POST |  Creates a user. |
+| /users/token | GET |  Returns a user's token. |
 | /users/'<int:pk>' | GET |  Returns a user. |
 | /users/'<int:pk>' | PUT |  Updates a user. |
 | /users/'<int:pk>' | PATCH |  Partialle updates a user. |
 | /users/'<int:pk>' | DELETE |  Deletes a user. |
-| /images/image-upload | POST |  User can upload an image if he is authenticated. |
-| /images/'<int:pk>'/thumbnail200 | GET | Is available for users with subscription plan. Returns a 200px height thumbnail of the image with given pk. |
-| /images/'<int:pk>'/thumbnail400 | GET |  Is available for users with subscription plans Premium or Enterprise. Returns a 400px height thumbnail of the image with given pk. |
-| /images/'<int:pk>'/original | GET |  Is available for users with subscription plans Premium or Enterprise. Returns the original image with given pk. |
-| /images/'<int:pk>'/'<int:expiring_time>' | GET |  Is available for users with subscription plan Enterprise. Returns the link to the original image with given pk and given expiring time between 300 and 30000 seconds. |
-| /images/'<int:pk>'/'<str:url_str>' | GET |  Returns the original image with given pk, if the link was generated for the user with Enterprise plan (see the step before). |
-| /files/file-upload | POST |  User can upload a file if he is authenticated. |
-| /files/my-files | GET |  Returns the information about files (metadata) for the authenticated user. |
-| /docs | GET |  API documentation with Swagger/OpenAPI 2.0 specifications. |
-| /admin | GET |  Admin interface. |
+| /resources/images/image-upload | POST |  User can upload an image if he is authenticated. |
+| /resources/images/'<int:pk>'/thumbnail200 | GET | Is available for users with subscription plan. Returns a 200px height thumbnail of the image with given pk. |
+| /resources/images/'<int:pk>'/thumbnail400 | GET |  Is available for users with subscription plans Premium or Enterprise. Returns a 400px height thumbnail of the image with given pk. |
+| /resources/images/'<int:pk>'/original | GET |  Is available for users with subscription plans Premium or Enterprise. Returns the original image with given pk. |
+| /resources/images/'<int:pk>'/'<int:expiring_time>' | GET |  Is available for users with subscription plan Enterprise. Returns the link to the original image with given pk and given expiring time between 300 and 30000 seconds. |
+| /resources/images/'<int:pk>'/'<str:url_str>' | GET |  Returns the original image with given pk, if the link was generated for the user with Enterprise plan (see the step before). |
+| /resources/files/file-upload | POST |  User can upload a file if he is authenticated. |
+| /resources/files/my-files | GET |  Returns the information about files (metadata) for the authenticated user. |
+| /resources/docs | GET |  API documentation with Swagger/OpenAPI 2.0 specifications. |
+| /resources/admin | GET |  Admin interface. |
 
 
 The expiring links are cleaned up with the Celery scheduled tasks.
