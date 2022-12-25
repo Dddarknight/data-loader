@@ -28,6 +28,8 @@ Endpoints:
 
 The expiring links are cleaned up with the Celery scheduled tasks.
 
+<a href="https://codeclimate.com/github/Dddarknight/data-loader/test_coverage"><img src="https://api.codeclimate.com/v1/badges/9faa086cfca0e7cb50d9/test_coverage" /></a>
+
 
 ## Links
 This project was built using these tools:
